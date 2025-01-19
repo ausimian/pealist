@@ -39,7 +39,7 @@ defmodule Pealist.Mixfile do
     [
       licenses: ["MIT"],
       links: %{
-        github: "https://github.com/ausimian/pealist/#{version()}"
+        "GitHub" => "https://github.com/ausimian/pealist/tree/#{version()}"
       }
     ]
   end
