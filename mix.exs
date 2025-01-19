@@ -4,7 +4,7 @@ defmodule Pealist.Mixfile do
   def project do
     [
       app: :pealist,
-      version: "0.1.0",
+      version: version(),
       description: "Parsing support for Apple's property list formats",
       elixir: "~> 1.15",
       build_embedded: Mix.env() == :prod,
@@ -32,5 +32,29 @@ defmodule Pealist.Mixfile do
         github: "https://github.com/ciaran/plist"
       }
     ]
+  end
+
+  defp version do
+    version_from_pkg() || version_from_github() || version_from_git() || "0.0.0"
+  end
+
+  defp version_from_github do
+    if System.get_env("GITHUB_REF_TYPE") == "tag" do
+      System.get_env("GITHUB_REF_NAME")
+    end
+  end
+
+  defp version_from_pkg do
+    if File.exists?("./hex_metadata.config") do
+      {:ok, info} = :file.consult("./hex_metadata.config")
+      Map.new(info)["version"]
+    end
+  end
+
+  defp version_from_git do
+    case System.cmd("git", ["describe", "--dirty"], stderr_to_stdout: true) do
+      {version, 0} -> String.trim(version)
+      _ -> nil
+    end
   end
 end
