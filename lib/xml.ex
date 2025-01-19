@@ -1,4 +1,4 @@
-defmodule Plist.XML do
+defmodule Pealist.XML do
   require Record
 
   @moduledoc false

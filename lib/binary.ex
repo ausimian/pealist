@@ -1,5 +1,5 @@
 # http://fileformats.archiveteam.org/wiki/Property_List/Binary
-defmodule Plist.Binary do
+defmodule Pealist.Binary do
   import Bitwise
 
   @moduledoc false

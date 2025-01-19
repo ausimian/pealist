@@ -1,4 +1,4 @@
-defmodule Plist do
+defmodule Pealist do
   @moduledoc """
   The entry point for reading plist data.
   """
@@ -12,8 +12,8 @@ defmodule Plist do
   @spec decode(String.t()) :: result
   def decode(data) do
     case String.slice(data, 0, 8) do
-      "bplist00" -> Plist.Binary.decode(data)
-      "<?xml ve" -> Plist.XML.decode(data)
+      "bplist00" -> Pealist.Binary.decode(data)
+      "<?xml ve" -> Pealist.XML.decode(data)
       _ -> raise "Unknown plist format"
     end
   end

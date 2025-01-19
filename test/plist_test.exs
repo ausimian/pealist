@@ -1,6 +1,6 @@
 defmodule PlistTest do
   use ExUnit.Case
-  doctest Plist
+  doctest Pealist
 
   test "basic parsing (binary)" do
     plist = parse_fixture("binary.plist")
@@ -36,6 +36,6 @@ defmodule PlistTest do
     [File.cwd!(), "test", "fixtures", filename]
     |> Path.join()
     |> File.read!()
-    |> Plist.decode()
+    |> Pealist.decode()
   end
 end

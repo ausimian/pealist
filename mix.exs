@@ -1,12 +1,12 @@
-defmodule Plist.Mixfile do
+defmodule Pealist.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :plist,
-      version: "0.0.7",
-      description: "An Elixir library to parse files in Apple's property list formats",
-      elixir: "~> 1.4",
+      app: :pealist,
+      version: "0.1.0",
+      description: "Parsing support for Apple's property list formats",
+      elixir: "~> 1.15",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
@@ -27,7 +27,6 @@ defmodule Plist.Mixfile do
 
   defp package do
     [
-      maintainers: ["Ciarán Walsh"],
       licenses: ["MIT"],
       links: %{
         github: "https://github.com/ciaran/plist"
