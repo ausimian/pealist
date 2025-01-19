@@ -10,7 +10,8 @@ defmodule Pealist.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
-      deps: deps()
+      deps: deps(),
+      docs: docs()
     ]
   end
 
@@ -18,6 +19,15 @@ defmodule Pealist.Mixfile do
     [
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.4", only: :dev, runtime: false}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      source_url: "https://github.com/ausimian/pealist",
+      source_ref: "#{version()}",
+      extras: ["LICENSE.md", "CHANGELOG.md", "README.md"]
     ]
   end
 
@@ -29,7 +39,7 @@ defmodule Pealist.Mixfile do
     [
       licenses: ["MIT"],
       links: %{
-        github: "https://github.com/ciaran/plist"
+        github: "https://github.com/ausimian/plist/#{version()}"
       }
     ]
   end
