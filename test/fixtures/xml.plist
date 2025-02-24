@@ -2,38 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Array</key>
-	<array>
-		<string>A</string>
-		<string>B</string>
-		<string>C</string>
-	</array>
-	<key>Date</key>
-	<date>2015-11-17T14:00:59Z</date>
-	<key>Number</key>
-	<integer>1234</integer>
-	<key>Float</key>
-	<real>1234.1234</real>
-	<key>String</key>
-	<string>foobar</string>
-	<key>True</key>
-	<true/>
-	<key>False</key>
-	<false/>
-	<key>Base64</key>
-	<data>AAECAwQFBgcICQo=</data>
-	<key>EntityEncoded</key>
-	<string>Foo &amp; Bar</string>
-	<key>UnicσdeKey</key>
-	<string>foobar</string>
-	<key>UnicodeValue</key>
-	<string>© 2008 – 2016</string>
-	<key>SomeUID</key>
-	<dict>
-		<key>CF$UID</key>
-		<integer>40</integer>
-	</dict>
   <key></key>
   <string></string>
+  <key>Array</key>
+  <array>
+    <string>A</string>
+    <string>B</string>
+    <string>C</string>
+  </array>
+  <key>Base64</key>
+  <data>AAECAwQFBgcICQo=</data>
+  <key>Date</key>
+  <date>2015-11-17T14:00:59Z</date>
+  <key>EntityEncoded</key>
+  <string>Foo &amp; Bar</string>
+  <key>False</key>
+  <false/>
+  <key>Float</key>
+  <real>1234.1234</real>
+  <key>Number</key>
+  <integer>1234</integer>
+  <key>SomeUID</key>
+  <dict>
+    <key>CF$UID</key>
+    <integer>40</integer>
+  </dict>
+  <key>String</key>
+  <string>foobar</string>
+  <key>True</key>
+  <true/>
+  <key>UnicodeValue</key>
+  <string>© 2008 – 2016</string>
+  <key>UnicσdeKey</key>
+  <string>foobar</string>
 </dict>
 </plist>

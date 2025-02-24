@@ -24,4 +24,12 @@ defmodule Pealist do
   def parse(data) do
     decode(data)
   end
+
+  @doc """
+  Encode the data provided as an XML format plist.
+  """
+  @spec encode(term()) :: String.t()
+  def encode(data) do
+    Pealist.XML.encode(data)
+  end
 end
