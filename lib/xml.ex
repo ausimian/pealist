@@ -19,7 +19,7 @@ defmodule Pealist.XML do
     {doc, _} =
       xml
       |> :binary.bin_to_list()
-      |> :xmerl_scan.string([{:comments, false}, {:space, :normalize}])
+      |> :xmerl_scan.string([{:comments, false}])
 
     root =
       doc
@@ -41,6 +41,14 @@ defmodule Pealist.XML do
 
   defp parse_value(element_node() = element) do
     parse_value(element_node(element, :name), element_node(element, :content))
+  end
+
+  defp parse_value(text_node() = node) do
+    if empty?(node) do
+      ""
+    else
+      parse_text_node(node)
+    end
   end
 
   defp parse_value(:string, list) do
@@ -100,9 +108,7 @@ defmodule Pealist.XML do
   defp element_text_value(element) do
     case element_node(element, :content) do
       [content_node] ->
-        content_node
-        |> text_node(:value)
-        |> :unicode.characters_to_binary()
+        parse_text_node(content_node)
 
       [] ->
         ""
@@ -112,11 +118,20 @@ defmodule Pealist.XML do
   defp do_parse_text_nodes([], result), do: result
 
   defp do_parse_text_nodes([node | list], result) do
-    text = node |> text_node(:value) |> :unicode.characters_to_binary()
-    do_parse_text_nodes(list, result <> text)
+    do_parse_text_nodes(list, result <> parse_text_node(node))
   end
 
-  defp empty?({:xmlText, _, _, [], ~c" ", :text}), do: true
+  defp parse_text_node(node) do
+    node
+    |> text_node(:value)
+    |> :unicode.characters_to_binary()
+  end
+
+  defp empty?(text_node() = node) do
+    value = parse_text_node(node)
+    String.trim(value) == ""
+  end
+
   defp empty?(_), do: false
 
   defp encode_plist_data(%NaiveDateTime{} = dt, level) do
