@@ -75,27 +75,13 @@ defmodule Pealist.Binary do
     |> Enum.into(%{})
   end
 
-  defp format_date_time({{year, month, day}, {hour, minute, second}}) do
-    :io_lib.format("~4..0B-~2..0B-~2..0B ~2..0B:~2..0B:~2..0B +0000", [
-      year,
-      month,
-      day,
-      hour,
-      minute,
-      second
-    ])
-    |> List.flatten()
-    |> to_string
-  end
-
   defp read_date(handle, length) do
     bytes = 1 <<< length
     <<seconds::float-size(bytes)-unit(8)>> = IO.binread(handle, bytes)
 
     apple_epoch = :calendar.datetime_to_gregorian_seconds({{2001, 1, 1}, {0, 0, 0}})
 
-    :calendar.gregorian_seconds_to_datetime(round(apple_epoch + seconds))
-    |> format_date_time
+    DateTime.from_gregorian_seconds(round(apple_epoch + seconds))
   end
 
   defp read_float(handle, length) do
