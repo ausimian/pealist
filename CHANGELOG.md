@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2 - 07 Mar 2025
+
+- Avoid squashing spaces
+
 ## 0.2.1 - 05 Mar 2025
 
 - Added xml encoding support
