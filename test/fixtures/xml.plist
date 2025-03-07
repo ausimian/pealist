@@ -9,11 +9,15 @@
     <string>A</string>
     <string>B</string>
     <string>C</string>
+    <string></string>
+    <string> </string>
   </array>
   <key>Base64</key>
   <data>AAECAwQFBgcICQo=</data>
   <key>Date</key>
   <date>2015-11-17T14:00:59Z</date>
+  <key>DoubleSpacedString</key>
+  <string>  foo  bar  </string>
   <key>EntityEncoded</key>
   <string>Foo &amp; Bar</string>
   <key>False</key>
@@ -22,6 +26,8 @@
   <real>1234.1234</real>
   <key>Number</key>
   <integer>1234</integer>
+  <key>SingleSpace</key>
+  <string> </string>
   <key>SomeUID</key>
   <dict>
     <key>CF$UID</key>
